@@ -23,11 +23,14 @@ class MusicLibraryController
 
     ##The pry is located just below.
     def list_songs
-      songs = []
-      Song.all.each {|song| songs << "#{song.artist.name} - #{song.name} - #{song.genre.name}"}
-      songs.sort_by! {|song| song.split(" - ")[1]}
-      songs.collect!.with_index {|song, position| "#{position + 1}. #{song}"}
-      songs.each{|song| puts song}
+      # songs = []
+      # Song.all.each {|song| songs << "#{song.artist.name} - #{song.name} - #{song.genre.name}"}
+      # songs.sort_by! {|song| song.split(" - ")[1]}
+      # songs.collect!.with_index {|song, position| "#{position + 1}. #{song}"}
+      # songs.each{|song| puts song}
+      Song.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
+      puts "#{i}. #{s.artist.name} - #{s.name} - #{s.genre.name}"
+    end
     end
 
     def list_artists
@@ -73,11 +76,17 @@ class MusicLibraryController
     def play_song
       puts "Which song number would you like to play?"
       input = gets.to_i
-       member = self.list_songs[input - 1]
-       artist_name = member.split(" - ")[0].slice!(3,13)
-       song_name = member.split(" - ")[1]
-      puts "Playing #{song_name} by #{artist_name}"
-    end
+      # binding.pry
+      Song.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
+      song = Song.all[input - 1]
+      # member = self.list_songs[input - 1]
+      #  artist_name = member.split(" - ")[0].slice!(3,13)
+      #
+      #  song_name = member.split(" - ")[1]
+        # binding.pry
+       puts "Playing #{song.name} by #{song.artist.name}"
+
+     end
 
 
   end
