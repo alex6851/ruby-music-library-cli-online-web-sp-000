@@ -77,8 +77,8 @@ class MusicLibraryController
       puts "Which song number would you like to play?"
       input = gets.to_i
       # binding.pry
-      Song.all.sort{ |a, b| a.name <=> b.name }.each.with_index(1) do |s, i|
-      song = Song.all[input - 1]
+      song = Song.all.sort{ |a, b| a.name <=> b.name }[input - 1]
+      
       # member = self.list_songs[input - 1]
       #  artist_name = member.split(" - ")[0].slice!(3,13)
       #
