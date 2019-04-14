@@ -18,7 +18,7 @@ class MusicLibraryController
 
     input = nil
     until input == "exit"
-      input = gets
+      input = gets.strip
     end
 
     ##The pry is located just below.
