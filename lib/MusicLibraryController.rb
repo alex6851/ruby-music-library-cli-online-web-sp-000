@@ -78,8 +78,8 @@ class MusicLibraryController
       input = gets.to_i
       # binding.pry
       if (1..Song.all.length).include?(input)
-      song = Song.all.sort{ |a, b| a.name <=> b.name }[input - 1]
-    end
+       song = Song.all.sort{ |a, b| a.name <=> b.name }[input - 1]
+     end
 
       # member = self.list_songs[input - 1]
       #  artist_name = member.split(" - ")[0].slice!(3,13)
