@@ -78,7 +78,7 @@ class MusicLibraryController
       input = gets.to_i
       # binding.pry
       song = Song.all.sort{ |a, b| a.name <=> b.name }[input - 1]
-      
+
       # member = self.list_songs[input - 1]
       #  artist_name = member.split(" - ")[0].slice!(3,13)
       #
